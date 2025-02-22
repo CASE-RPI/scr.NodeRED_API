@@ -1,6 +1,6 @@
 # Node-RED API for Smart Conference Room
 
-This repository contains the Node-RED API for accessing sensors and HVAC in the Smart Conference Room at RPI
+This repository contains Node-RED API codes for accessing sensors and HVAC in the Smart Conference Room at RPI
 
 ## Contents
 
