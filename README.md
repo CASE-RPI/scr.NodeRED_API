@@ -135,4 +135,4 @@ Please note that <b> the users are disallowed to control lighting, blinds, and H
 
 <a name="contact"></a>
 ## 5. Contact
-If you have any question on this code, feel free to reach out to Jihoon Chung ([chungj11@rpi.edu](mailto:chungj11@rpi.edu))
+If you have any question on this code, feel free to reach out to me ([jihoonchung.research@gmail.com](mailto:jihoonchung.research@gmail.com))
