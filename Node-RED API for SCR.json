@@ -1,0 +1,110 @@
+[
+    {
+        "id": "718fcd6eec340e27",
+        "type": "tab",
+        "label": "REST API for Smart Conference Room",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8a6be6e209e3eab4",
+        "type": "comment",
+        "z": "718fcd6eec340e27",
+        "name": "REST API for Smart Conference Room",
+        "info": "",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e839ea0ebb0644cc",
+        "type": "debug",
+        "z": "718fcd6eec340e27",
+        "name": "Output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b5f25c2cb251eb5c",
+        "type": "exec",
+        "z": "718fcd6eec340e27",
+        "command": "rosrun scr_control",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "60",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "e839ea0ebb0644cc",
+                "30d02ee22d677342"
+            ],
+            [
+                "e839ea0ebb0644cc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "deaadb987787ff23",
+        "type": "http in",
+        "z": "718fcd6eec340e27",
+        "name": "",
+        "url": "/SCR",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "2f322b5fcec2bc9d"
+            ]
+        ]
+    },
+    {
+        "id": "30d02ee22d677342",
+        "type": "http response",
+        "z": "718fcd6eec340e27",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2f322b5fcec2bc9d",
+        "type": "function",
+        "z": "718fcd6eec340e27",
+        "name": "Converter",
+        "func": "var p = msg.payload;\nvar clientName = \"SCR_\"+p[\"client_name\"]+\"_client_public.py\";\nvar command = p[\"command\"];\nvar arguments = p[\"arguments\"];\n\nmsg.payload = clientName + \" \" + command + \" \" + arguments;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "b5f25c2cb251eb5c",
+                "e839ea0ebb0644cc"
+            ]
+        ]
+    }
+]
