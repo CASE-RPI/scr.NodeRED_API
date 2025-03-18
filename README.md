@@ -1,6 +1,7 @@
 # Node-RED API for Smart Conference Room
 
 Developed by Jihoon Chung
+
 This repository contains Node-RED API codes for accessing sensors and HVAC in the Smart Conference Room at RPI
 
 ## Contents
